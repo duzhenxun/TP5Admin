@@ -13,8 +13,12 @@ TP5Admin使用ThinkPHP5.02核心版框架开发.
  + 操作日志管理
 > 运行环境要求PHP5.4以上。
 
-虚拟机配置,需要绑定到public目录中,这样比较安全.
 
+## 虚拟机配置,需要绑定到public目录中,这样比较安全.
+
+Nginx虚拟机配置如下：
+
+~~~
 server {
         listen       80; 
         server_name  tp5admin.com;
@@ -39,7 +43,7 @@ server {
             include        fastcgi_params;
         }   
 }
-
+~~~
 
 
 ## 参与开发
