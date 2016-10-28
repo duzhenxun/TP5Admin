@@ -5,13 +5,13 @@
  Source Server Type    : MySQL
  Source Server Version : 50629
  Source Host           : localhost
- Source Database       : zxcms
+ Source Database       : tp5admin
 
  Target Server Type    : MySQL
  Target Server Version : 50629
  File Encoding         : utf-8
 
- Date: 10/23/2016 14:31:37 PM
+ Date: 10/28/2016 11:06:56 AM
 */
 
 SET NAMES utf8;
@@ -43,7 +43,7 @@ CREATE TABLE `zxcms_admin` (
 --  Records of `zxcms_admin`
 -- ----------------------------
 BEGIN;
-INSERT INTO `zxcms_admin` VALUES ('1', 'admin', '21232f297a57a5a743894a0e4a801fc3', '', '2130706433', '1477015838', 'admin@91shiwan.com', '18888873646', '振训', '', '1', '0'), ('2', 'zhenxun', 'c2785bf6585103658d34413683ac36f8', '', '2130706433', '1476067533', '', '18888873646', '', '', '1', '1476067742'), ('3', 'zhangsan', '01d7f40760960e7bd9443513f22ab9af', '', '0', '0', '', '', '', '', '1', '0');
+INSERT INTO `zxcms_admin` VALUES ('1', 'admin', '21232f297a57a5a743894a0e4a801fc3', '', '2130706433', '1477015838', '5552123@qq.com', '18888873646', '阿杜', '', '1', '1477623198'), ('2', 'zhenxun', 'c2785bf6585103658d34413683ac36f8', '', '2130706433', '1476067533', '', '18888873646', '', '', '1', '1476067742'), ('3', 'zhangsan', '01d7f40760960e7bd9443513f22ab9af', '', '0', '0', '', '', '', '', '1', '0');
 COMMIT;
 
 -- ----------------------------
@@ -65,7 +65,7 @@ CREATE TABLE `zxcms_admin_group` (
 --  Records of `zxcms_admin_group`
 -- ----------------------------
 BEGIN;
-INSERT INTO `zxcms_admin_group` VALUES ('1', '普通管理员', '', '', '0', null), ('2', '工作人员', '仅拥有日志管理权限', '18,23,27', '0', '1476067479');
+INSERT INTO `zxcms_admin_group` VALUES ('1', '普通管理员', '密码加密只是MD5', '', '0', '1477622552'), ('2', '工作人员', '仅拥有日志管理权限', '18,23,27', '0', '1476067479');
 COMMIT;
 
 -- ----------------------------
@@ -102,14 +102,7 @@ CREATE TABLE `zxcms_admin_log` (
   `ip` int(10) NOT NULL,
   `time` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=30 DEFAULT CHARSET=utf8;
-
--- ----------------------------
---  Records of `zxcms_admin_log`
--- ----------------------------
-BEGIN;
-INSERT INTO `zxcms_admin_log` VALUES ('1', 'admin', 'Menu', 'info', '?parentid=31', '1', 'admin', '2130706433', '2016-10-18 09:49:29'), ('2', 'admin', 'Menu', 'info', '?id=31', '1', 'admin', '2130706433', '2016-10-18 09:49:40'), ('3', 'admin', 'Admin', 'index', '', '1', 'admin', '2130706433', '2016-10-18 09:49:53'), ('4', 'admin', 'Group', 'index', '', '1', 'admin', '2130706433', '2016-10-18 09:49:54'), ('5', 'admin', 'Admin', 'public_edit_info', '', '1', 'admin', '2130706433', '2016-10-18 09:49:55'), ('6', 'admin', 'Admin', 'index', '', '1', 'admin', '2130706433', '2016-10-18 09:50:07'), ('7', 'admin', 'Index', 'favicon.ico', '', '1', 'admin', '2130706433', '2016-10-18 09:58:40'), ('8', 'admin', 'Menu', 'favicon.ico', '', '1', 'admin', '2130706433', '2016-10-18 10:00:24'), ('9', 'admin', 'Menu', 'info', '', '1', 'admin', '2130706433', '2016-10-18 15:10:17'), ('10', 'admin', 'Index', 'favicon.ico', '', '1', 'admin', '2130706433', '2016-10-19 20:20:35'), ('11', 'admin', 'Index', 'favicon.ico', '', '1', 'admin', '2130706433', '2016-10-21 10:10:40'), ('12', 'admin', 'Menu', 'favicon.ico', '', '1', 'admin', '2130706433', '2016-10-21 10:11:16'), ('13', 'admin', 'Menu', 'index.js.map', '', '1', 'admin', '2130706433', '2016-10-21 10:11:16'), ('14', 'admin', 'Menu', 'info', '?id=31', '1', 'admin', '2130706433', '2016-10-21 10:11:18'), ('15', 'admin', 'Menu', 'index.js.map', '', '1', 'admin', '2130706433', '2016-10-21 10:11:18'), ('16', 'admin', 'Menu', 'favicon.ico', '', '1', 'admin', '2130706433', '2016-10-21 10:11:18'), ('17', 'admin', 'Menu', 'index.js.map', '', '1', 'admin', '2130706433', '2016-10-21 11:20:01'), ('18', 'admin', 'Admin', 'index', '', '1', 'admin', '2130706433', '2016-10-23 14:18:43'), ('19', 'admin', 'Admin', 'favicon.ico', '', '1', 'admin', '2130706433', '2016-10-23 14:18:43'), ('20', 'admin', 'Group', 'index', '', '1', 'admin', '2130706433', '2016-10-23 14:18:44'), ('21', 'admin', 'Group', 'favicon.ico', '', '1', 'admin', '2130706433', '2016-10-23 14:18:44'), ('22', 'admin', 'Admin', 'public_edit_info', '', '1', 'admin', '2130706433', '2016-10-23 14:18:44'), ('23', 'admin', 'Index', 'favicon.ico', '', '1', 'admin', '2130706433', '2016-10-23 14:18:48'), ('24', 'admin', 'Group', 'index', '', '1', 'admin', '2130706433', '2016-10-23 14:18:53'), ('25', 'admin', 'Admin', 'public_edit_info', '', '1', 'admin', '2130706433', '2016-10-23 14:18:57'), ('26', 'admin', 'Admin', 'favicon.ico', '', '1', 'admin', '2130706433', '2016-10-23 14:18:57'), ('27', 'admin', 'Admin', 'index', '', '1', 'admin', '2130706433', '2016-10-23 14:18:59'), ('28', 'admin', 'Group', 'index', '', '1', 'admin', '2130706433', '2016-10-23 14:18:59'), ('29', 'admin', 'Admin', 'public_edit_info', '', '1', 'admin', '2130706433', '2016-10-23 14:19:00');
-COMMIT;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 --  Table structure for `zxcms_app`
