@@ -24,9 +24,10 @@ class AdminController extends CommonController {
         $lists = db('admin')->alias('t1')->field('t1.*')
                 ->where($where)
                 ->join(config('database.prefix').'admin_group_access t2', 't1.id=t2.uid', 'left')
+                ->group('t1.id')
                 ->order('t1.id desc')
                 ->select();
-
+     
         foreach ($lists as $k => $v) {
             //取出组名
             $lists[$k]['groups'] = '';
