@@ -13,6 +13,33 @@ TP5Admin使用ThinkPHP5.02核心版框架开发.
  + 操作日志管理
 > 运行环境要求PHP5.4以上。
 
+虚拟机配置,需要绑定到public目录中,这样比较安全.
+
+server {
+        listen       80; 
+        server_name  tp5admin.com;
+        root   "/Users/mac/wwwroot/work/tp5admin.com/public";
+        location / { 
+            index  index.html index.htm index.php;
+            autoindex  on; 
+         if (!-e $request_filename) {
+                        ###一级目录下
+                        rewrite ^/(.*)$ /index.php/$1 last;
+                        ###域名下的二级目录
+                        #rewrite ^/目录名/(.*)$ /目录名/index.php/$1 last;
+                }   
+        }   
+        location ~ \.php(.*)$ {
+            fastcgi_pass   127.0.0.1:9000;
+            fastcgi_index  index.php;
+            fastcgi_split_path_info  ^((?U).+\.php)(/?.+)$;
+            fastcgi_param  SCRIPT_FILENAME  $document_root$fastcgi_script_name;
+            fastcgi_param  PATH_INFO  $fastcgi_path_info;
+            fastcgi_param  PATH_TRANSLATED  $document_root$fastcgi_path_info;
+            include        fastcgi_params;
+        }   
+}
+
 
 
 ## 参与开发
