@@ -46,6 +46,28 @@ server {
 ~~~
 
 
+window环境 LAMP 配置
+~~~
+
+
+1   在 C:\Windows\System32\drivers\etc\hosts文件底部添加
+      127.0.0.1 tp5admin.com
+
+
+2  在httpd.conf 文件底部添加 tp5admin 网站配置
+
+<virtualhost *:80>
+
+    ServerName tp5admin.com
+
+    DocumentRoot C:\xampp\htdocs\tp5admin\public
+
+<virtualhost>
+
+3 重启apache 即可 运行tp5admin.com/admin 即可
+~~~
+
+
 ## 参与开发
 注册并登录 Github 帐号， fork 本项目并进行改动。
 
