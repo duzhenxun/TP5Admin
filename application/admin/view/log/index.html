@@ -1,0 +1,63 @@
+<div class="page-content">
+
+    <div class="page-header">
+        <h1>
+            {:model('menu')->getName()} 
+        </h1>
+    </div><!-- /.page-header -->
+
+    <div class="row">
+        <div class="col-xs-12">
+            <!-- PAGE CONTENT BEGINS -->
+            <div class="row">
+                <div class="col-xs-12">
+                    <table id="simple-table" class="table  table-bordered table-hover">
+                        <thead>
+                            <tr>
+                                <th class="center">
+                                    <label class="pos-rel">
+                                        <input type="checkbox" class="ace" />
+                                        <span class="lbl"></span>
+                                    </label>
+                                </th>
+                                <th class="detail-col">序号</th>
+                                <th>用户名</th>
+                                <th>操作地址</th>
+                                <th class="hidden-480">最后登录IP</th>
+                                <th>
+                                    <i class="ace-icon fa fa-clock-o bigger-110 hidden-480"></i>
+                                    最后登录时间
+                                </th>
+                            </tr>
+                        </thead>
+
+                        <tbody>
+                            {volist name="lists" id="vo"}
+                            <tr>
+                                <td class="center">
+                                    <label class="pos-rel">
+                                        <input type="checkbox" class="ace" />
+                                        <span class="lbl"></span>
+                                    </label>
+                                </td>
+                                <td>{$vo.id}</td>
+                                <td><a href="#">{$vo.username}</a></td>
+                                <td>{$vo.c}/{$vo.a}{$vo.querystring}</td>
+                                <td class="hidden-480"><a href="http://ip138.com/ips138.asp?ip={:long2ip($vo.ip)}" target="_blank">{:long2ip($vo.ip)}</a></td>
+                                <td>{$vo.time}</td>
+                                
+                            </tr>
+                            {/volist}    
+                        </tbody>
+                    </table>
+                   {$lists->render()}
+                </div><!-- /.span -->
+            </div><!-- /.row -->
+             
+            <!-- PAGE CONTENT ENDS -->
+        </div><!-- /.col -->
+    </div><!-- /.row -->
+</div><!-- /.page-content -->
+
+
+
