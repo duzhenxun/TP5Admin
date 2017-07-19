@@ -22,15 +22,12 @@ Nginx虚拟机配置如下：
 server {
         listen       80; 
         server_name  tp5admin.com;
-        root   "/Users/mac/wwwroot/work/tp5admin.com/public";
+        root   "/Users/mac/wwwroot/work/tp5admin.com";
         location / { 
             index  index.html index.htm index.php;
             autoindex  on; 
          if (!-e $request_filename) {
-                        ###一级目录下
                         rewrite ^/(.*)$ /index.php/$1 last;
-                        ###域名下的二级目录
-                        #rewrite ^/目录名/(.*)$ /目录名/index.php/$1 last;
                 }   
         }   
         location ~ \.php(.*)$ {
@@ -60,7 +57,7 @@ window环境 LAMP 配置
 
     ServerName tp5admin.com
 
-    DocumentRoot C:\xampp\htdocs\tp5admin\public
+    DocumentRoot C:\xampp\htdocs\tp5admin
 
 <virtualhost>
 
