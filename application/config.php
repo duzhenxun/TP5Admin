@@ -209,6 +209,9 @@ return [
         'list_rows' => 15,
     ],
     'encry_key' => 'zxcms',
+    'public'=>[
+        'static'=>'/public/static'
+	],
 ];
 
 
