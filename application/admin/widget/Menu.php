@@ -8,7 +8,7 @@
  * @version    SVN:$Id:$ 
  */
 
-namespace application\admin\widget;
+namespace app\admin\widget;
 
 class Menu {
 

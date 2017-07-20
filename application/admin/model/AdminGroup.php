@@ -8,7 +8,7 @@
  * @version    SVN:$Id:$ 
  */
 
-namespace application\admin\model;
+namespace app\admin\model;
 
 class AdminGroup extends \think\Model {
 

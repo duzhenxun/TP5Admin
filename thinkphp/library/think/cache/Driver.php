@@ -2,7 +2,7 @@
 // +----------------------------------------------------------------------
 // | ThinkPHP [ WE CAN DO IT JUST THINK ]
 // +----------------------------------------------------------------------
-// | Copyright (c) 2006~2016 http://thinkphp.cn All rights reserved.
+// | Copyright (c) 2006~2017 http://thinkphp.cn All rights reserved.
 // +----------------------------------------------------------------------
 // | Licensed ( http://www.apache.org/licenses/LICENSE-2.0 )
 // +----------------------------------------------------------------------
@@ -105,7 +105,7 @@ abstract class Driver
             $this->rm($name);
             return $result;
         } else {
-            return null;
+            return;
         }
     }
 
@@ -170,8 +170,9 @@ abstract class Driver
             $key       = 'tag_' . md5($this->tag);
             $this->tag = null;
             if ($this->has($key)) {
-                $value = $this->get($key);
-                $value .= ',' . $name;
+                $value   = explode(',', $this->get($key));
+                $value[] = $name;
+                $value   = implode(',', array_unique($value));
             } else {
                 $value = $name;
             }

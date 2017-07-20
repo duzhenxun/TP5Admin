@@ -16,9 +16,9 @@ return [
     // | 应用设置
     // +----------------------------------------------------------------------
     // 应用命名空间
-    'app_namespace' => 'application',
+    'app_namespace' => 'app',
     // 应用调试模式
-    'app_debug' => FALSE,
+    'app_debug' => true,
     // 应用Trace
     'app_trace' => false,
     // 应用模式状态

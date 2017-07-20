@@ -8,7 +8,7 @@
  * @version    SVN:$Id:$ 
  */
 
-namespace application\admin\controller;
+namespace app\admin\controller;
 
 use think\Loader;
 
@@ -16,6 +16,7 @@ class MenuController extends CommonController {
 
     public function index() {
         $res = db('menu')->order('listorder asc')->select();
+	
         $lists = nodeTree($res);
         $this->assign('lists', $lists);
         return $this->fetch();

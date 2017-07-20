@@ -8,7 +8,7 @@
  * @version    SVN:$Id:$ 
  */  
 
-namespace application\admin\controller;
+namespace app\admin\controller;
 
 class IndexController extends CommonController{
     /**
