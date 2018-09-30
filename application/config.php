@@ -210,7 +210,7 @@ return [
     ],
     'encry_key' => 'zxcms',
     'public'=>[
-        'static'=>'/public/static'
+        'static'=>'/static'
 	],
 ];
 
