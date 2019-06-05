@@ -1,5 +1,4 @@
 .idea
 composer.lock
 *.log
-*/.DS_Store
-thinkphp
+*/.DS_Storegit
