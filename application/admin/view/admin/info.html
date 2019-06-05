@@ -1,6 +1,7 @@
 <div class="page-content">
     <div class="col-sm-6 pull-right">
-        <button class="btn btn-sm btn-primary pull-right" onclick="javascript:window.location.href = 'index'">
+
+        <button class="btn btn-sm btn-primary pull-right" onclick="javascript:window.location.href = '{:url("index")}'">
             返回列表
             <i class="icon-reply icon-only"></i>
         </button>
@@ -18,7 +19,7 @@
     <div class="row">
         <div class="col-xs-12">
             <!-- PAGE CONTENT BEGINS -->
-            <form class="form-horizontal" role="form" action="{:input('id')?'edit':'add'}" method="post" name="myfrom" >
+            <form class="form-horizontal" role="form" action="{:input('id')?url('edit'):url('add')}" method="post" name="myfrom" >
                 {:input('id')?'<input type="hidden" value="'.$info['id'].'" name="id">':''}
                 <div class="form-group">
                     <label class="col-sm-3 control-label no-padding-right">用户名</label>

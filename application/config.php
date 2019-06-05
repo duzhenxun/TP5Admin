@@ -1,22 +1,19 @@
 <?php
-
 // +----------------------------------------------------------------------
 // | ThinkPHP [ WE CAN DO IT JUST THINK ]
 // +----------------------------------------------------------------------
-// | Copyright (c) 2006~2016 http://thinkphp.cn All rights reserved.
+// | Copyright (c) 2006~2018 http://thinkphp.cn All rights reserved.
 // +----------------------------------------------------------------------
 // | Licensed ( http://www.apache.org/licenses/LICENSE-2.0 )
 // +----------------------------------------------------------------------
 // | Author: liu21st <liu21st@gmail.com>
 // +----------------------------------------------------------------------
 error_reporting(E_ERROR | E_WARNING | E_PARSE);
-
 return [
     // +----------------------------------------------------------------------
     // | 应用设置
     // +----------------------------------------------------------------------
-    // 应用命名空间
-    'app_namespace' => 'app',
+
     // 应用调试模式
     'app_debug' => true,
     // 应用Trace
@@ -25,10 +22,10 @@ return [
     'app_status' => '',
     // 是否支持多模块
     'app_multi_module' => true,
+    // 入口自动绑定模块
+    'auto_bind_module' => false,
     // 注册的根命名空间
     'root_namespace' => [],
-    // 扩展配置文件
-    'extra_config_list' => ['database', 'route', 'validate'],
     // 扩展函数文件
     'extra_file_list' => [THINK_PATH . 'helper' . EXT],
     // 默认输出类型
@@ -47,11 +44,15 @@ return [
     'default_filter' => '',
     // 默认语言
     'default_lang' => 'zh-cn',
-    // 是否启用控制器类后缀
+    // 应用类库后缀
+    'class_suffix' => false,
+    // 控制器类后缀
     'controller_suffix' => false,
+
     // +----------------------------------------------------------------------
     // | 模块设置
     // +----------------------------------------------------------------------
+
     // 默认模块名
     'default_module' => 'admin',
     // 禁止访问模块
@@ -68,9 +69,11 @@ return [
     'action_suffix' => '',
     // 自动搜索控制器
     'controller_auto_search' => false,
+
     // +----------------------------------------------------------------------
     // | URL设置
     // +----------------------------------------------------------------------
+
     // PATHINFO变量名 用于兼容模式
     'var_pathinfo' => 's',
     // 兼容PATH_INFO获取
@@ -78,18 +81,25 @@ return [
     // pathinfo分隔符
     'pathinfo_depr' => '/',
     // URL伪静态后缀
-    'url_html_suffix' => FALSE,
+    //'url_html_suffix'        => 'html',
+    'url_html_suffix' => false,
     // URL普通方式参数 用于自动生成
-    'url_common_param' => true,
+    'url_common_param' => false,
     // URL参数方式 0 按名称成对解析 1 按顺序解析
     'url_param_type' => 0,
     // 是否开启路由
-    'url_route_on' => FALSE,
+    'url_route_on' => false,
+    // 路由使用完整匹配
+    'route_complete_match' => false,
+    // 路由配置文件（支持配置多个）
+    'route_config_file' => ['route'],
+    // 是否开启路由解析缓存
+    'route_check_cache' => false,
     // 是否强制使用路由
     'url_route_must' => false,
     // 域名部署
     'url_domain_deploy' => false,
-    // 域名根，如.thinkphp.cn
+    // 域名根，如thinkphp.cn
     'url_domain_root' => '',
     // 是否自动转换URL中的控制器和操作名
     'url_convert' => true,
@@ -97,16 +107,26 @@ return [
     'url_controller_layer' => 'controller',
     // 表单请求类型伪装变量
     'var_method' => '_method',
-    // 关闭URL中控制器和操作名的自动转换
-    'url_convert' => true,
-    'controller_suffix' => true,
-    'show_error_msg' => true,
+    // 表单ajax伪装变量
+    'var_ajax' => '_ajax',
+    // 表单pjax伪装变量
+    'var_pjax' => '_pjax',
+    // 是否开启请求缓存 true自动缓存 支持设置请求缓存规则
+    'request_cache' => false,
+    // 请求缓存有效期
+    'request_cache_expire' => null,
+    // 全局请求缓存排除规则
+    'request_cache_except' => [],
+
     // +----------------------------------------------------------------------
     // | 模板设置
     // +----------------------------------------------------------------------
+
     'template' => [
         // 模板引擎类型 支持 php think 支持扩展
         'type' => 'Think',
+        // 默认模板渲染规则 1 解析为小写+下划线 2 全部转换小写
+        'auto_rule' => 1,
         // 模板路径
         'view_path' => '',
         // 模板后缀
@@ -121,44 +141,56 @@ return [
         'taglib_begin' => '{',
         // 标签库标签结束标记
         'taglib_end' => '}',
-        'layout_on' => true,
-        'layout_name' => 'layout',
+
     ],
+
     // 视图输出字符串内容替换
     'view_replace_str' => [],
     // 默认跳转页面对应的模板文件
     'dispatch_success_tmpl' => THINK_PATH . 'tpl' . DS . 'dispatch_jump.tpl',
     'dispatch_error_tmpl' => THINK_PATH . 'tpl' . DS . 'dispatch_jump.tpl',
+
     // +----------------------------------------------------------------------
     // | 异常及错误设置
     // +----------------------------------------------------------------------
+
     // 异常页面的模板文件
     'exception_tmpl' => THINK_PATH . 'tpl' . DS . 'think_exception.tpl',
+
     // 错误显示信息,非调试模式有效
     'error_message' => '页面错误！请稍后再试～',
     // 显示错误信息
     'show_error_msg' => false,
     // 异常处理handle类 留空使用 \think\exception\Handle
     'exception_handle' => '',
+
+
+
     // +----------------------------------------------------------------------
     // | 日志设置
     // +----------------------------------------------------------------------
+
     'log' => [
-        // 日志记录方式，支持 file socket
+        // 日志记录方式，内置 file socket 支持扩展
         'type' => 'File',
         // 日志保存目录
         'path' => LOG_PATH,
+        // 日志记录级别
+        'level' => [],
     ],
+
     // +----------------------------------------------------------------------
-    // | Trace设置
+    // | Trace设置 开启 app_trace 后 有效
     // +----------------------------------------------------------------------
     'trace' => [
-        //支持Html Console
+        // 内置Html Console 支持扩展
         'type' => 'Html',
     ],
+
     // +----------------------------------------------------------------------
     // | 缓存设置
     // +----------------------------------------------------------------------
+
     'cache' => [
         // 驱动方式
         'type' => 'File',
@@ -169,9 +201,11 @@ return [
         // 缓存有效期 0表示永久缓存
         'expire' => 0,
     ],
+
     // +----------------------------------------------------------------------
     // | 会话设置
     // +----------------------------------------------------------------------
+
     'session' => [
         'id' => '',
         // SESSION_ID的提交变量,解决flash上传跨域
@@ -183,6 +217,7 @@ return [
         // 是否自动开启 SESSION
         'auto_start' => true,
     ],
+
     // +----------------------------------------------------------------------
     // | Cookie设置
     // +----------------------------------------------------------------------
@@ -190,7 +225,7 @@ return [
         // cookie 名称前缀
         'prefix' => '',
         // cookie 保存时间
-        'expire' => 60 * 60 * 24 * 7,
+        'expire' => 0,
         // cookie 保存路径
         'path' => '/',
         // cookie 有效域名
@@ -202,6 +237,7 @@ return [
         // 是否使用 setcookie
         'setcookie' => true,
     ],
+
     //分页配置
     'paginate' => [
         'type' => 'bootstrap',
@@ -209,9 +245,8 @@ return [
         'list_rows' => 15,
     ],
     'encry_key' => 'zxcms',
-    'public'=>[
-        'static'=>'/static'
-	],
+    'public' => [
+        'static' => '/static'
+    ],
+
 ];
-
-

@@ -1,2 +1,5 @@
+.idea
+composer.lock
+*.log
 */.DS_Store
-.idea/*
+thinkphp

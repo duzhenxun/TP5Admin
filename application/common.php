@@ -78,7 +78,7 @@ function select($array = array(), $id = 0, $str = '', $default_option = '') {
 
 /**
  * 复选框
- * 
+ *
  * @param $array 选项 二维数组
  * @param $id 默认选中值，多个用 '逗号'分割
  * @param $str 属性
@@ -108,7 +108,7 @@ function checkbox($array = array(), $id = '', $str = '', $defaultvalue = '', $wi
 
 /**
  * 单选框
- * 
+ *
  * @param $array 选项 二维数组
  * @param $id 默认选中值
  * @param $str 属性

@@ -26,14 +26,14 @@
                     {foreach name="menu" item="v"}
                     <div class="alert alert-info">
                         <label class="block">
-                            <input {in name="$v[id]" value="$rules"}checked{/in}  value="{$v.id}" name="rules[]"  type="checkbox" class="ace input-lg" >
+                            <input {in name="$v['id']" value="$rules"} checked="checked" {/in}  value="{$v.id}" name="rules[]"  type="checkbox" class="ace input-lg" >
                             <span class="lbl bigger-120">{$v.name}</span>
                         </label>
                         {notempty name="$v['_child']"}
                         {foreach name="$v['_child']" item="vv"}
                         <div class="">
                             <label>
-                                <input {in name="$vv[id]" value="$rules"}checked{/in} value="{$vv.id}" name="rules[]" type="checkbox" class="ace">
+                                <input {in name="$vv['id']" value="$rules"} checked="checked" {/in} value="{$vv.id}" name="rules[]" type="checkbox" class="ace">
                                 <span class="lbl"> {$vv.name}</span>
                             </label>
                             {notempty name="$vv['_child']"}
@@ -41,7 +41,7 @@
                                 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                                 {foreach name="$vv['_child']" item="vvv"}
                                 <label>
-                                    <input {in name="$vvv[id]" value="$rules"}checked{/in} value="{$vvv.id}" name="rules[]" type="checkbox" class="ace">
+                                    <input {in name="$vvv['id']" value="$rules"} checked="checked" {/in} value="{$vvv.id}" name="rules[]" type="checkbox" class="ace">
                                     <span class="lbl"> {$vvv.name}</span>
                                 </label>
                                 {/foreach}

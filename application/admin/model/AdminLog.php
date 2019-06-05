@@ -7,7 +7,8 @@
  * @author Zhenxun Du<5552123@qq.com>  
  * @version    SVN:$Id:$ 
  */
-class app extends think\Model {
+namespace app\admin\model;
+class AdminLog extends think\Model {
     
 
 }
