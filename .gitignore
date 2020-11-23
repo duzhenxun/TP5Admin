@@ -2,3 +2,7 @@
 composer.lock
 *.log
 */.DS_Storegit
+.user.ini
+.well-known/*
+.htaccess
+404.html

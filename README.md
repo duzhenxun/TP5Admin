@@ -1,6 +1,7 @@
 TP5Admin 
 ===================
 作者 Ado,QQ:5552123(微信)
+演示：tp5admin.xs25.cn
 ===================
 
 TP5Admin V2.1使用ThinkPHP5.0.24完整版 框架开发.
@@ -53,7 +54,6 @@ server {
 window环境 LAMP 配置
 ~~~
 
-
 1   在 C:\Windows\System32\drivers\etc\hosts文件底部添加
       127.0.0.1 tp5admin.com
 
@@ -77,5 +77,7 @@ window环境 LAMP 配置
 
 更多细节参阅 https://github.com/duzhenxun/TP5Admin
 
-https://gitee.com/duzhenxun/tp6admin
+### laravel后台项目  
+https://github.com/duzhenxun/laravel-admin
+演示地址: larave-admin.xs25.cn
 
